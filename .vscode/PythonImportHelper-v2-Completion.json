@@ -1,0 +1,166 @@
+[
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "Counter",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "allowed_file",
+        "kind": 2,
+        "importPath": "KonamiListFixer.app",
+        "description": "KonamiListFixer.app",
+        "peekOfCode": "def allowed_file(filename):\n    return \".\" in filename and filename.rsplit(\".\", 1)[1].lower() in ALLOWED_EXTENSIONS\n# Função para ler YDK\ndef parse_ydk(file_path):\n    with open(file_path, \"r\", encoding=\"utf-8\") as f:\n        lines = f.readlines()\n    sections = {\"main\": [], \"extra\": [], \"side\": []}\n    current_section = \"main\"\n    for line in lines:\n        line = line.strip()",
+        "detail": "KonamiListFixer.app",
+        "documentation": {}
+    },
+    {
+        "label": "parse_ydk",
+        "kind": 2,
+        "importPath": "KonamiListFixer.app",
+        "description": "KonamiListFixer.app",
+        "peekOfCode": "def parse_ydk(file_path):\n    with open(file_path, \"r\", encoding=\"utf-8\") as f:\n        lines = f.readlines()\n    sections = {\"main\": [], \"extra\": [], \"side\": []}\n    current_section = \"main\"\n    for line in lines:\n        line = line.strip()\n        if line == \"#main\":\n            current_section = \"main\"\n        elif line == \"#extra\":",
+        "detail": "KonamiListFixer.app",
+        "documentation": {}
+    },
+    {
+        "label": "get_card_info",
+        "kind": 2,
+        "importPath": "KonamiListFixer.app",
+        "description": "KonamiListFixer.app",
+        "peekOfCode": "def get_card_info(card_id):\n    url = f\"https://db.ygoprodeck.com/api/v7/cardinfo.php?id={card_id}\"\n    response = requests.get(url)\n    if response.status_code == 200:\n        data = response.json().get(\"data\", [])\n        if data:\n            card = data[0]\n            return {\n                \"name\": card[\"name\"],\n                \"image_url\": card[\"card_images\"][0][\"image_url\"],",
+        "detail": "KonamiListFixer.app",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "KonamiListFixer.app",
+        "description": "KonamiListFixer.app",
+        "peekOfCode": "def index():\n    deck_data = None\n    loading = False\n    if request.method == \"POST\":\n        if \"deckFile\" not in request.files:\n            flash(\"No file part\")\n            return redirect(request.url)\n        file = request.files[\"deckFile\"]\n        if file.filename == \"\":\n            flash(\"No selected file\")",
+        "detail": "KonamiListFixer.app",
+        "documentation": {}
+    },
+    {
+        "label": "UPLOAD_FOLDER",
+        "kind": 5,
+        "importPath": "KonamiListFixer.app",
+        "description": "KonamiListFixer.app",
+        "peekOfCode": "UPLOAD_FOLDER = \"../src/uploads\"  # pasta para salvar arquivos YDK\nALLOWED_EXTENSIONS = {\"ydk\"}\n# Cria pasta se não existir\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\napp = Flask(\n    __name__,\n    template_folder=\"../src/templates\",\n    static_folder=\"../src/static\"\n)\napp.secret_key = \"supersecretkey\"",
+        "detail": "KonamiListFixer.app",
+        "documentation": {}
+    },
+    {
+        "label": "ALLOWED_EXTENSIONS",
+        "kind": 5,
+        "importPath": "KonamiListFixer.app",
+        "description": "KonamiListFixer.app",
+        "peekOfCode": "ALLOWED_EXTENSIONS = {\"ydk\"}\n# Cria pasta se não existir\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\napp = Flask(\n    __name__,\n    template_folder=\"../src/templates\",\n    static_folder=\"../src/static\"\n)\napp.secret_key = \"supersecretkey\"\napp.config[\"UPLOAD_FOLDER\"] = UPLOAD_FOLDER",
+        "detail": "KonamiListFixer.app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "KonamiListFixer.app",
+        "description": "KonamiListFixer.app",
+        "peekOfCode": "app = Flask(\n    __name__,\n    template_folder=\"../src/templates\",\n    static_folder=\"../src/static\"\n)\napp.secret_key = \"supersecretkey\"\napp.config[\"UPLOAD_FOLDER\"] = UPLOAD_FOLDER\n# Função para validar extensão\ndef allowed_file(filename):\n    return \".\" in filename and filename.rsplit(\".\", 1)[1].lower() in ALLOWED_EXTENSIONS",
+        "detail": "KonamiListFixer.app",
+        "documentation": {}
+    },
+    {
+        "label": "app.secret_key",
+        "kind": 5,
+        "importPath": "KonamiListFixer.app",
+        "description": "KonamiListFixer.app",
+        "peekOfCode": "app.secret_key = \"supersecretkey\"\napp.config[\"UPLOAD_FOLDER\"] = UPLOAD_FOLDER\n# Função para validar extensão\ndef allowed_file(filename):\n    return \".\" in filename and filename.rsplit(\".\", 1)[1].lower() in ALLOWED_EXTENSIONS\n# Função para ler YDK\ndef parse_ydk(file_path):\n    with open(file_path, \"r\", encoding=\"utf-8\") as f:\n        lines = f.readlines()\n    sections = {\"main\": [], \"extra\": [], \"side\": []}",
+        "detail": "KonamiListFixer.app",
+        "documentation": {}
+    },
+    {
+        "label": "app.config[\"UPLOAD_FOLDER\"]",
+        "kind": 5,
+        "importPath": "KonamiListFixer.app",
+        "description": "KonamiListFixer.app",
+        "peekOfCode": "app.config[\"UPLOAD_FOLDER\"] = UPLOAD_FOLDER\n# Função para validar extensão\ndef allowed_file(filename):\n    return \".\" in filename and filename.rsplit(\".\", 1)[1].lower() in ALLOWED_EXTENSIONS\n# Função para ler YDK\ndef parse_ydk(file_path):\n    with open(file_path, \"r\", encoding=\"utf-8\") as f:\n        lines = f.readlines()\n    sections = {\"main\": [], \"extra\": [], \"side\": []}\n    current_section = \"main\"",
+        "detail": "KonamiListFixer.app",
+        "documentation": {}
+    }
+]

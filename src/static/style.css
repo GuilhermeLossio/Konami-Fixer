@@ -1,0 +1,394 @@
+/* ===== VARIÁVEIS CSS - TEMA TECNOLÓGICO ===== */
+:root {
+  --primary-purple: #8a2be2;
+  --purple-glow: #9d4edd;
+  --purple-hover: #7b1fa2;
+  --cyber-blue: #00b4d8;
+  --neon-pink: #ff0080;
+  --dark-bg: #0a0a0f;
+  --darker-bg: #050508;
+  --card-bg: #151520;
+  --card-hover: #1e1e2f;
+  --text-light: #e0e0ff;
+  --text-muted: #8892b0;
+  --border-color: #2d2d4d;
+  --border-glow: rgba(138, 43, 226, 0.5);
+  --shadow-glow: 0 0 15px rgba(138, 43, 226, 0.3);
+  --shadow-strong: 0 0 25px rgba(138, 43, 226, 0.4);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --border-radius: 12px;
+}
+
+/* ===== ESTILOS GERAIS ===== */
+body {
+  background: linear-gradient(135deg, var(--dark-bg) 0%, var(--darker-bg) 100%);
+  color: var(--text-light);
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+.bg-purple {
+  background: linear-gradient(135deg, var(--primary-purple), var(--purple-glow)) !important;
+}
+
+.text-purple {
+  color: var(--primary-purple) !important;
+  text-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.border-purple {
+  border-color: var(--primary-purple) !important;
+  box-shadow: var(--shadow-glow);
+}
+
+/* ===== BOTÕES TECNOLÓGICOS ===== */
+.btn-outline-purple {
+  border: 2px solid var(--primary-purple);
+  color: var(--primary-purple);
+  background: transparent;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-outline-purple::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(138, 43, 226, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn-outline-purple:hover::before {
+  left: 100%;
+}
+
+.btn-outline-purple:hover,
+.btn-outline-purple:focus {
+  background-color: var(--primary-purple);
+  color: white;
+  border-color: var(--primary-purple);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-strong);
+}
+
+.btn-purple {
+  background: linear-gradient(135deg, var(--primary-purple), var(--purple-glow));
+  color: white;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-purple::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+  transform: rotate(45deg);
+  transition: all 0.5s;
+}
+
+.btn-purple:hover::after {
+  left: 50%;
+}
+
+.btn-purple:hover {
+  background: linear-gradient(135deg, var(--purple-hover), var(--primary-purple));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-strong);
+}
+
+/* ===== SEÇÕES DO DECK ===== */
+.deck-section {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.deck-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--cyber-blue), var(--primary-purple), var(--neon-pink));
+  opacity: 0.8;
+  transition: var(--transition);
+}
+
+.deck-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(138, 43, 226, 0.05), transparent 30%);
+  pointer-events: none;
+}
+
+.deck-section:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-strong);
+  border-color: var(--border-glow);
+}
+
+.deck-section:hover::before {
+  opacity: 1;
+}
+
+/* ===== LAYOUT DO DECK ===== */
+.deck-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(85px, 1fr));
+  gap: 12px;
+  padding: 15px;
+}
+
+.deck-card {
+  position: relative;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.deck-card:hover {
+  transform: translateY(-3px) scale(1.05);
+}
+
+.deck-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--border-color);
+  transition: var(--transition);
+  filter: brightness(0.9);
+}
+
+.deck-card:hover img {
+  border-color: var(--primary-purple);
+  box-shadow: var(--shadow-glow);
+  filter: brightness(1.1);
+}
+
+/* ===== BADGES E QUANTIDADES TECNOLÓGICOS ===== */
+.qty-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(138, 43, 226, 0.9));
+  color: var(--text-light);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 15px;
+  min-width: 26px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  z-index: 2;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
+}
+
+.deck-card .badge {
+  font-size: 0.75rem;
+  background: linear-gradient(135deg, var(--card-bg), var(--border-color));
+  color: var(--text-muted);
+  margin-top: 6px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+/* ===== LOADING SCREEN TECNOLÓGICA ===== */
+#loading {
+  background: var(--dark-bg);
+  border-radius: var(--border-radius);
+  border: 1px solid var(--border-color);
+  padding: 3rem;
+  text-align: center;
+}
+
+.spinner-tech {
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--border-color);
+  border-top: 3px solid var(--primary-purple);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+  box-shadow: 0 0 15px rgba(138, 43, 226, 0.3);
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ===== FORMULÁRIOS ===== */
+.form-control {
+  background: var(--card-bg);
+  border: 2px solid var(--border-color);
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.form-control:focus {
+  background: var(--card-hover);
+  border-color: var(--primary-purple);
+  color: var(--text-light);
+  box-shadow: var(--shadow-glow);
+}
+
+.form-label {
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ===== LINHAS DE CARTA ===== */
+.card-row {
+  transition: var(--transition);
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 3px 0;
+  background: var(--card-bg);
+  border-left: 3px solid transparent;
+}
+
+.card-row:hover {
+  background: var(--card-hover);
+  transform: translateX(5px);
+  border-left: 3px solid var(--primary-purple);
+  box-shadow: var(--shadow-glow);
+}
+
+/* ===== LAYOUT COMPACTO ===== */
+.deck-grid-compact {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 65px);
+  gap: 8px;
+}
+
+.card-item {
+  position: relative;
+  width: 65px;
+  height: 95px;
+}
+
+.card-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+}
+
+/* ===== ESTADOS INTERATIVOS ===== */
+.deck-card.selected {
+  border-color: var(--primary-purple);
+}
+
+.deck-card.selected img {
+  border-color: var(--cyber-blue);
+  box-shadow: 0 0 0 3px var(--cyber-blue), var(--shadow-glow);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  .deck-grid {
+    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    gap: 10px;
+    padding: 12px;
+  }
+  
+  .deck-card img {
+    height: 105px;
+  }
+  
+  .deck-grid-compact {
+    grid-template-columns: repeat(auto-fill, 60px);
+    gap: 6px;
+  }
+  
+  .card-item {
+    width: 60px;
+    height: 85px;
+  }
+}
+
+@media (max-width: 480px) {
+  .deck-grid {
+    grid-template-columns: repeat(auto-fill, minmax(65px, 1fr));
+    gap: 8px;
+    padding: 10px;
+  }
+  
+  .deck-card img {
+    height: 90px;
+  }
+}
+
+/* ===== ANIMAÇÕES TECNOLÓGICAS ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% { box-shadow: var(--shadow-glow); }
+  50% { box-shadow: var(--shadow-strong); }
+}
+
+.deck-card {
+  animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.deck-section {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.glow-animation {
+  animation: glowPulse 2s infinite;
+}
+
+/* ===== SCROLL PERSONALIZADO ===== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--dark-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--primary-purple), var(--cyber-blue));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--purple-glow), var(--cyber-blue));
+}
