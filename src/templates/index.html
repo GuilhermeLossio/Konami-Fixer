@@ -218,7 +218,7 @@
                         </h2>
                     </div>
                     <div class="card-body p-0">
-                        <iframe id="pdfViewer" src="{{ url_for('static', filename='pdfs/decklist.pdf') }}">
+                        <iframe id="pdfViewer" src="{{ url_for('static', filename=decklistPath) if decklistPath else url_for('static', filename='pdfs/decklist.pdf') }}">
                             Your browser does not support PDF viewing.
                         </iframe>
                     </div>

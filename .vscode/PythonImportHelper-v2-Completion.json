@@ -56,6 +56,14 @@
         "documentation": {}
     },
     {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -88,6 +96,15 @@
         "description": "collections",
         "isExtraImport": true,
         "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "WriteANewPdf",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "WriteANewPdf",
+        "description": "WriteANewPdf",
+        "detail": "WriteANewPdf",
         "documentation": {}
     },
     {
@@ -162,7 +179,7 @@
         "kind": 2,
         "importPath": "KonamiListFixer.app",
         "description": "KonamiListFixer.app",
-        "peekOfCode": "def index():\n    deck_data = None\n    loading = False\n    submit_done = True\n    if request.method == \"POST\":\n        if \"deckFile\" not in request.files:\n            flash(\"No file part\")\n            return redirect(request.url)\n        file = request.files[\"deckFile\"]\n        if file.filename == \"\":",
+        "peekOfCode": "def index():\n    deck_data = None\n    loading = False\n    submit_done = True\n    decklistPath = \"\"\n    if request.method == \"POST\":\n        if \"deckFile\" not in request.files:\n            flash(\"No file part\")\n            return redirect(request.url)\n        file = request.files[\"deckFile\"]",
         "detail": "KonamiListFixer.app",
         "documentation": {}
     },
@@ -216,7 +233,7 @@
         "kind": 2,
         "importPath": "KonamiListFixer.WriteANewPdf",
         "description": "KonamiListFixer.WriteANewPdf",
-        "peekOfCode": "def fill_konami_decklist(input_pdf_path, output_pdf_path, data):\n    temp_pdf_path = \"temp_filled_data.pdf\"\n    c = canvas.Canvas(temp_pdf_path, pagesize=letter)\n    c.setFont(\"Helvetica\", 12)\n    # -----------------------------\n    # Informações Pessoais\n    # -----------------------------\n    c.drawString(102, 720, data.get(\"first_middle_name\", \"\"))  # First & Middle Name\n    c.drawString(102, 695, data.get(\"last_name\", \"\"))          # Last Name\n    c.drawString(400, 695, data.get(\"country_of_residency\", \"\"))  # Country of Residency",
+        "peekOfCode": "def fill_konami_decklist(data):\n    input_pdf_file = \"./src/static/pdfs/decklist.pdf\"  # PDF em branco\n    output_pdf_file = \"./src/static/pdfs/decklist_test_filled.pdf\"\n    temp_pdf_path = \"./src/static/pdfs/temp_filled_data.pdf\"\n    c = canvas.Canvas(temp_pdf_path, pagesize=letter)\n    c.setFont(\"Helvetica\", 12)\n    # -----------------------------\n    # Informações Pessoais\n    # -----------------------------\n    c.drawString(102, 720, data.get(\"first_middle_name\", \"\"))  # First & Middle Name",
         "detail": "KonamiListFixer.WriteANewPdf",
         "documentation": {}
     }

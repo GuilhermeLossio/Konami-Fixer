@@ -4,6 +4,8 @@ import requests
 import time
 from collections import Counter
 
+import WriteANewPdf
+
 # Configurações
 UPLOAD_FOLDER = "../src/uploads"  # pasta para salvar arquivos YDK
 ALLOWED_EXTENSIONS = {"ydk"}
@@ -72,6 +74,7 @@ def index():
     deck_data = None
     loading = False
     submit_done = True
+    decklistPath = ""
 
     if request.method == "POST":
         if "deckFile" not in request.files:
@@ -101,10 +104,22 @@ def index():
                     {**get_card_info(card_id), "quantity": qty} for card_id, qty in counter.items()
                 ]
             submit_done = False
+            
+            dataUser = {
+                "first_middle_names": request.form.get("first_middle_names", "").strip(),
+                "last_names": request.form.get("last_names", "").strip(),
+                "card_game_id": request.form.get("card_game_id", "").strip(),
+                "event_date": request.form.get("event_date", "").strip(),
+                "country_residency": request.form.get("country_residency", "").strip(),
+                "event_name": request.form.get("event_name", "").strip(),
+            }
+            
+            decklistPath = WriteANewPdf.fill_konami_decklist(dataUser)
+            
         else:
             flash("Invalid file type. Only .ydk allowed.")
             return redirect(request.url)
-    return render_template("index.html", deck_data=deck_data, loading=loading, submit_done=submit_done)
+    return render_template("index.html", deck_data=deck_data, loading=loading, submit_done=submit_done, decklistPath=decklistPath)
 
 if __name__ == "__main__":
     app.run(debug=True)

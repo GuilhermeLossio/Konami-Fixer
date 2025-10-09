@@ -1,9 +1,15 @@
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter
 from pdfrw import PdfReader, PdfWriter, PageMerge
+from flask import url_for
 
-def fill_konami_decklist(input_pdf_path, output_pdf_path, data):
-    temp_pdf_path = "temp_filled_data.pdf"
+
+
+def fill_konami_decklist(data):
+    input_pdf_file = "./src/static/pdfs/decklist.pdf"  # PDF em branco
+    output_pdf_file = "./src/static/pdfs/decklist_test_filled.pdf"
+
+    temp_pdf_path = "./src/static/pdfs/temp_filled_data.pdf"
     c = canvas.Canvas(temp_pdf_path, pagesize=letter)
     c.setFont("Helvetica", 12)
 
@@ -84,7 +90,7 @@ def fill_konami_decklist(input_pdf_path, output_pdf_path, data):
     # -----------------------------
     # Mesclar com PDF original
     # -----------------------------
-    template_pdf = PdfReader(input_pdf_path)
+    template_pdf = PdfReader(input_pdf_file)
     overlay_pdf = PdfReader(temp_pdf_path)
 
     for page_num, page in enumerate(template_pdf.pages):
@@ -92,17 +98,16 @@ def fill_konami_decklist(input_pdf_path, output_pdf_path, data):
         merger = PageMerge(page)
         merger.add(overlay_page).render()
 
-    PdfWriter(output_pdf_path, trailer=template_pdf).write()
-    print(f"PDF preenchido salvo em: {output_pdf_path}")
-    return output_pdf_path
+    PdfWriter(output_pdf_file, trailer=template_pdf).write()
+    #decklistPath = url_for('static', filename=output_pdf_file)
+    print(f"PDF preenchido salvo em: {output_pdf_file}")
+    output_pdf_file = output_pdf_file.replace("./", "")
+    return output_pdf_file
 
 # -----------------------------
 # Teste
 # -----------------------------
 if __name__ == "__main__":
-    input_pdf_file = "./src/static/pdfs/decklist.pdf"  # PDF em branco
-    output_pdf_file = "decklist_test_filled.pdf"
-
     test_data = {
         "first_middle_name": "João Pedro",
         "last_name": "Silva",
@@ -178,4 +183,4 @@ if __name__ == "__main__":
         ],
     }
 
-    fill_konami_decklist(input_pdf_file, output_pdf_file, test_data)
+    fill_konami_decklist(test_data)
