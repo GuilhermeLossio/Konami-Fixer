@@ -48,6 +48,14 @@
         "documentation": {}
     },
     {
+        "label": "session",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
@@ -114,7 +122,7 @@
         "kind": 2,
         "importPath": "KonamiListFixer.app",
         "description": "KonamiListFixer.app",
-        "peekOfCode": "def index():\n    deck_data = None\n    loading = False\n    if request.method == \"POST\":\n        if \"deckFile\" not in request.files:\n            flash(\"No file part\")\n            return redirect(request.url)\n        file = request.files[\"deckFile\"]\n        if file.filename == \"\":\n            flash(\"No selected file\")",
+        "peekOfCode": "def index():\n    deck_data = None\n    loading = False\n    submit_done = True\n    if request.method == \"POST\":\n        if \"deckFile\" not in request.files:\n            flash(\"No file part\")\n            return redirect(request.url)\n        file = request.files[\"deckFile\"]\n        if file.filename == \"\":",
         "detail": "KonamiListFixer.app",
         "documentation": {}
     },

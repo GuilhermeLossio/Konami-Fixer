@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 import os
 import requests
 import time
@@ -64,6 +64,7 @@ def get_card_info(card_id):
 def index():
     deck_data = None
     loading = False
+    submit_done = True
 
     if request.method == "POST":
         if "deckFile" not in request.files:
@@ -81,6 +82,7 @@ def index():
 
             loading = True
             time.sleep(1)  # apenas efeito de loading
+            ##session['submit_done'] = False
 
             sections = parse_ydk(file_path)
 
@@ -91,11 +93,11 @@ def index():
                 deck_data[section] = [
                     {**get_card_info(card_id), "quantity": qty} for card_id, qty in counter.items()
                 ]
+            submit_done = False
         else:
             flash("Invalid file type. Only .ydk allowed.")
             return redirect(request.url)
-
-    return render_template("index.html", deck_data=deck_data, loading=loading)
+    return render_template("index.html", deck_data=deck_data, loading=loading, submit_done=submit_done)
 
 if __name__ == "__main__":
     app.run(debug=True)
