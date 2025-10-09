@@ -91,6 +91,46 @@
         "documentation": {}
     },
     {
+        "label": "canvas",
+        "importPath": "reportlab.pdfgen",
+        "description": "reportlab.pdfgen",
+        "isExtraImport": true,
+        "detail": "reportlab.pdfgen",
+        "documentation": {}
+    },
+    {
+        "label": "letter",
+        "importPath": "reportlab.lib.pagesizes",
+        "description": "reportlab.lib.pagesizes",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.pagesizes",
+        "documentation": {}
+    },
+    {
+        "label": "PdfReader",
+        "importPath": "pdfrw",
+        "description": "pdfrw",
+        "isExtraImport": true,
+        "detail": "pdfrw",
+        "documentation": {}
+    },
+    {
+        "label": "PdfWriter",
+        "importPath": "pdfrw",
+        "description": "pdfrw",
+        "isExtraImport": true,
+        "detail": "pdfrw",
+        "documentation": {}
+    },
+    {
+        "label": "PageMerge",
+        "importPath": "pdfrw",
+        "description": "pdfrw",
+        "isExtraImport": true,
+        "detail": "pdfrw",
+        "documentation": {}
+    },
+    {
         "label": "allowed_file",
         "kind": 2,
         "importPath": "KonamiListFixer.app",
@@ -113,7 +153,7 @@
         "kind": 2,
         "importPath": "KonamiListFixer.app",
         "description": "KonamiListFixer.app",
-        "peekOfCode": "def get_card_info(card_id):\n    url = f\"https://db.ygoprodeck.com/api/v7/cardinfo.php?id={card_id}\"\n    response = requests.get(url)\n    if response.status_code == 200:\n        data = response.json().get(\"data\", [])\n        if data:\n            card = data[0]\n            return {\n                \"name\": card[\"name\"],\n                \"image_url\": card[\"card_images\"][0][\"image_url\"],",
+        "peekOfCode": "def get_card_info(card_id):\n    url = \"https://db.ygoprodeck.com/api/v7/cardinfo.php\"\n    params = {\n        \"id\": card_id,\n        \"misc\": \"yes\",\n        \"format\" : \"genesys\"\n    }\n    response = requests.get(url, params=params)\n    if response.status_code == 200:\n        data = response.json().get(\"data\", [])",
         "detail": "KonamiListFixer.app",
         "documentation": {}
     },
@@ -169,6 +209,15 @@
         "description": "KonamiListFixer.app",
         "peekOfCode": "app.config[\"UPLOAD_FOLDER\"] = UPLOAD_FOLDER\n# Função para validar extensão\ndef allowed_file(filename):\n    return \".\" in filename and filename.rsplit(\".\", 1)[1].lower() in ALLOWED_EXTENSIONS\n# Função para ler YDK\ndef parse_ydk(file_path):\n    with open(file_path, \"r\", encoding=\"utf-8\") as f:\n        lines = f.readlines()\n    sections = {\"main\": [], \"extra\": [], \"side\": []}\n    current_section = \"main\"",
         "detail": "KonamiListFixer.app",
+        "documentation": {}
+    },
+    {
+        "label": "fill_konami_decklist",
+        "kind": 2,
+        "importPath": "KonamiListFixer.WriteANewPdf",
+        "description": "KonamiListFixer.WriteANewPdf",
+        "peekOfCode": "def fill_konami_decklist(input_pdf_path, output_pdf_path, data):\n    temp_pdf_path = \"temp_filled_data.pdf\"\n    c = canvas.Canvas(temp_pdf_path, pagesize=letter)\n    c.setFont(\"Helvetica\", 12)\n    # -----------------------------\n    # Informações Pessoais\n    # -----------------------------\n    c.drawString(102, 720, data.get(\"first_middle_name\", \"\"))  # First & Middle Name\n    c.drawString(102, 695, data.get(\"last_name\", \"\"))          # Last Name\n    c.drawString(400, 695, data.get(\"country_of_residency\", \"\"))  # Country of Residency",
+        "detail": "KonamiListFixer.WriteANewPdf",
         "documentation": {}
     }
 ]

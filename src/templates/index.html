@@ -181,17 +181,26 @@
                                         <img src="{{ card.image_url }}" alt="{{ card.name }}" class="card-img"
                                             onerror="this.src='{{ url_for('static', filename='no-image.png') }}'">
                                         {% else %}
-                                        <img src="{{ url_for('static', filename='no-image.png') }}" alt="No Image"
-                                            class="card-img">
+                                        <img src="{{ url_for('static', filename='no-image.png') }}" alt="No Image" class="card-img">
                                         {% endif %}
-                                        <span class="badge bg-danger position-absolute top-0 end-0 m-1">{{ card.quantity
-                                            }}</span>
-                                        <small class="d-block text-center mt-1 text-truncate"
-                                            style="max-width: 100px;">{{
-                                            card.name }}</small>
+
+                                        <!-- Span esquerda: quantidade -->
+                                        <span class="badge bg-success position-absolute top-0 start-0 m-1">
+                                            {{ card.quantity }}
+                                        </span>
+
+                                        <!-- Span direita: genesys_points -->
+                                        <span class="badge bg-danger position-absolute top-0 end-0 m-1">
+                                            {{ card.genesys_points or 0 }}
+                                        </span>
+
+                                        <small class="d-block text-center mt-1 text-truncate" style="max-width: 100px;">
+                                            {{ card.name }}
+                                        </small>
                                     </div>
                                     {% endfor %}
                                 </div>
+
                             </div>
                             {% endfor %}
                             {% endif %}

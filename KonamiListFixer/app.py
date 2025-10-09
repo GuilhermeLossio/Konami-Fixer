@@ -47,18 +47,25 @@ def parse_ydk(file_path):
 
 # Função para buscar info da carta via API YGOPRODeck
 def get_card_info(card_id):
-    url = f"https://db.ygoprodeck.com/api/v7/cardinfo.php?id={card_id}"
-    response = requests.get(url)
+    url = "https://db.ygoprodeck.com/api/v7/cardinfo.php"
+    params = {
+        "id": card_id,
+        "misc": "yes",
+        "format" : "genesys"
+    }
+    response = requests.get(url, params=params)
     if response.status_code == 200:
         data = response.json().get("data", [])
         if data:
             card = data[0]
+            genesysPoints = card.get('genesys_points', 0)
             return {
                 "name": card["name"],
                 "image_url": card["card_images"][0]["image_url"],
-                "quantity": 1
+                "quantity": 1,
+                "genesys_points": card['misc_info'][0]['genesys_points']
             }
-    return {"name": f"Unknown ({card_id})", "image_url": "", "quantity": 1}
+    return {"name": f"Unknown ({card_id})", "image_url": "", "quantity": 1, "genesys_points": 0}
 
 @app.route("/", methods=["GET", "POST"])
 def index():
