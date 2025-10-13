@@ -261,11 +261,20 @@
         "documentation": {}
     },
     {
+        "label": "BASE_DIR",
+        "kind": 5,
+        "importPath": "src.app",
+        "description": "src.app",
+        "peekOfCode": "BASE_DIR = os.path.dirname(os.path.abspath(__file__))\n# Configurações\nUPLOAD_FOLDER = os.path.join(BASE_DIR, \"../src/uploads\")  # pasta para salvar arquivos YDK\nALLOWED_EXTENSIONS = {\"ydk\"}\n# Cria pasta se não existir\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\napp = Flask(\n    __name__,\n    template_folder=os.path.join(BASE_DIR, \"../src/templates\"),\n    static_folder=os.path.join(BASE_DIR, \"../src/static\")",
+        "detail": "src.app",
+        "documentation": {}
+    },
+    {
         "label": "UPLOAD_FOLDER",
         "kind": 5,
         "importPath": "src.app",
         "description": "src.app",
-        "peekOfCode": "UPLOAD_FOLDER = \"../src/uploads\"  # pasta para salvar arquivos YDK\nALLOWED_EXTENSIONS = {\"ydk\"}\n# Cria pasta se não existir\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\napp = Flask(\n    __name__,\n    BASE_DIR = os.path.dirname(os.path.abspath(__file__))\n    app = Flask(\n        __name__,\n        template_folder=os.path.join(BASE_DIR, \"../src/templates\"),",
+        "peekOfCode": "UPLOAD_FOLDER = os.path.join(BASE_DIR, \"../src/uploads\")  # pasta para salvar arquivos YDK\nALLOWED_EXTENSIONS = {\"ydk\"}\n# Cria pasta se não existir\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\napp = Flask(\n    __name__,\n    template_folder=os.path.join(BASE_DIR, \"../src/templates\"),\n    static_folder=os.path.join(BASE_DIR, \"../src/static\")\n    )\nalphabet = string.ascii_letters + string.digits + \"!@#$%^&*()-_=+\"",
         "detail": "src.app",
         "documentation": {}
     },
@@ -274,7 +283,7 @@
         "kind": 5,
         "importPath": "src.app",
         "description": "src.app",
-        "peekOfCode": "ALLOWED_EXTENSIONS = {\"ydk\"}\n# Cria pasta se não existir\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\napp = Flask(\n    __name__,\n    BASE_DIR = os.path.dirname(os.path.abspath(__file__))\n    app = Flask(\n        __name__,\n        template_folder=os.path.join(BASE_DIR, \"../src/templates\"),\n        static_folder=os.path.join(BASE_DIR, \"../src/static\")",
+        "peekOfCode": "ALLOWED_EXTENSIONS = {\"ydk\"}\n# Cria pasta se não existir\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\napp = Flask(\n    __name__,\n    template_folder=os.path.join(BASE_DIR, \"../src/templates\"),\n    static_folder=os.path.join(BASE_DIR, \"../src/static\")\n    )\nalphabet = string.ascii_letters + string.digits + \"!@#$%^&*()-_=+\"\napp.secret_key = ''.join(secrets.choice(alphabet) for _ in range(50))",
         "detail": "src.app",
         "documentation": {}
     },
@@ -283,7 +292,7 @@
         "kind": 5,
         "importPath": "src.app",
         "description": "src.app",
-        "peekOfCode": "app = Flask(\n    __name__,\n    BASE_DIR = os.path.dirname(os.path.abspath(__file__))\n    app = Flask(\n        __name__,\n        template_folder=os.path.join(BASE_DIR, \"../src/templates\"),\n        static_folder=os.path.join(BASE_DIR, \"../src/static\")\n    )\n)\nalphabet = string.ascii_letters + string.digits + \"!@#$%^&*()-_=+\"",
+        "peekOfCode": "app = Flask(\n    __name__,\n    template_folder=os.path.join(BASE_DIR, \"../src/templates\"),\n    static_folder=os.path.join(BASE_DIR, \"../src/static\")\n    )\nalphabet = string.ascii_letters + string.digits + \"!@#$%^&*()-_=+\"\napp.secret_key = ''.join(secrets.choice(alphabet) for _ in range(50))\napp.config[\"UPLOAD_FOLDER\"] = UPLOAD_FOLDER\n# Função para validar extensão\ndef allowed_file(filename):",
         "detail": "src.app",
         "documentation": {}
     },

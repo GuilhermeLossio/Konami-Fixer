@@ -9,9 +9,9 @@ from collections import Counter
 import sys
 sys.path.append("..")
 from api import WriteANewPdf
-
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Configurações
-UPLOAD_FOLDER = "../src/uploads"  # pasta para salvar arquivos YDK
+UPLOAD_FOLDER = os.path.join(BASE_DIR, "../src/uploads")  # pasta para salvar arquivos YDK
 ALLOWED_EXTENSIONS = {"ydk"}
 
 # Cria pasta se não existir
@@ -19,13 +19,9 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 app = Flask(
     __name__,
-    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-    app = Flask(
-        __name__,
-        template_folder=os.path.join(BASE_DIR, "../src/templates"),
-        static_folder=os.path.join(BASE_DIR, "../src/static")
+    template_folder=os.path.join(BASE_DIR, "../src/templates"),
+    static_folder=os.path.join(BASE_DIR, "../src/static")
     )
-)
 
 alphabet = string.ascii_letters + string.digits + "!@#$%^&*()-_=+"
 app.secret_key = ''.join(secrets.choice(alphabet) for _ in range(50))
