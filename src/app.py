@@ -1,5 +1,4 @@
-import api.WriteANewPdf as WriteANewPdf
-
+from api import WriteANewPdf
 from flask import Flask, render_template, request, redirect, url_for, flash, session, send_file
 import os
 import io
