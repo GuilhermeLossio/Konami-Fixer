@@ -1,4 +1,4 @@
-from api import WriteANewPdf
+
 from flask import Flask, render_template, request, redirect, url_for, flash, session, send_file
 import os
 import io
@@ -6,7 +6,9 @@ import requests
 import time
 import secrets, string
 from collections import Counter
-
+import sys
+sys.path.append("..")
+from api import WriteANewPdf
 
 # Configurações
 UPLOAD_FOLDER = "../src/uploads"  # pasta para salvar arquivos YDK
@@ -17,14 +19,17 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 app = Flask(
     __name__,
-    template_folder="../src/templates",
-    static_folder="../src/static"
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    app = Flask(
+        __name__,
+        template_folder=os.path.join(BASE_DIR, "../src/templates"),
+        static_folder=os.path.join(BASE_DIR, "../src/static")
+    )
 )
 
 alphabet = string.ascii_letters + string.digits + "!@#$%^&*()-_=+"
 app.secret_key = ''.join(secrets.choice(alphabet) for _ in range(50))
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
-app.secret_key = "muda_essa_para_algo_secreto"  # necessário para session
 
 # Função para validar extensão
 def allowed_file(filename):
@@ -147,3 +152,6 @@ def decklist():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
+app = app
