@@ -8,10 +8,10 @@ from datetime import datetime
 
 
 def fill_konami_decklist(data, deck_data):
-    input_pdf_file = "./src/static/pdfs/decklist.pdf"  # PDF em branco
-    output_pdf_file = "./src/static/pdfs/decklist_test_filled.pdf"
+    input_pdf_file = "KonamiListFixer/src/static/pdfs/decklist.pdf"  # PDF em branco
+    output_pdf_file = "KonamiListFixer/src/static/pdfs/decklist_test_filled.pdf"
 
-    temp_pdf_path = "./src/static/pdfs/temp_filled_data.pdf"
+    temp_pdf_path = "KonamiListFixer/src/static/pdfs/temp_filled_data.pdf"
     c = canvas.Canvas(temp_pdf_path, pagesize=letter)
     c.setFont("Helvetica", 12)
 

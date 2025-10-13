@@ -6,7 +6,7 @@ import time
 import secrets, string
 from collections import Counter
 
-import WriteANewPdf
+import api.WriteANewPdf as WriteANewPdf
 
 # Configurações
 UPLOAD_FOLDER = "../src/uploads"  # pasta para salvar arquivos YDK
