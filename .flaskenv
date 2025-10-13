@@ -1,3 +1,3 @@
-FLASK_APP=src/app.py
+FLASK_APP=api/app.py
 FLASK_ENV=development
 FLASK_RUN_PORT=8000

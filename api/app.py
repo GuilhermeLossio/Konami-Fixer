@@ -8,20 +8,21 @@ import secrets, string
 from collections import Counter
 import sys
 sys.path.append("..")
-from api import WriteANewPdf
+import WriteANewPdf
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Configurações
-UPLOAD_FOLDER = os.path.join(BASE_DIR, "../src/uploads")  # pasta para salvar arquivos YDK
+UPLOAD_FOLDER = os.path.join(BASE_DIR, "../uploads")  # pasta para salvar arquivos YDK
 ALLOWED_EXTENSIONS = {"ydk"}
 
 # Cria pasta se não existir
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+print(BASE_DIR)
 
 app = Flask(
     __name__,
-    template_folder=os.path.join(BASE_DIR, "../src/templates"),
-    static_folder=os.path.join(BASE_DIR, "../src/static")
-    )
+    template_folder=os.path.join(BASE_DIR, "templates"),
+    static_folder=os.path.join(BASE_DIR, "static")
+)
 
 alphabet = string.ascii_letters + string.digits + "!@#$%^&*()-_=+"
 app.secret_key = ''.join(secrets.choice(alphabet) for _ in range(50))
