@@ -1,61 +1,5 @@
 [
     {
-        "label": "canvas",
-        "importPath": "reportlab.pdfgen",
-        "description": "reportlab.pdfgen",
-        "isExtraImport": true,
-        "detail": "reportlab.pdfgen",
-        "documentation": {}
-    },
-    {
-        "label": "letter",
-        "importPath": "reportlab.lib.pagesizes",
-        "description": "reportlab.lib.pagesizes",
-        "isExtraImport": true,
-        "detail": "reportlab.lib.pagesizes",
-        "documentation": {}
-    },
-    {
-        "label": "A4",
-        "importPath": "reportlab.lib.pagesizes",
-        "description": "reportlab.lib.pagesizes",
-        "isExtraImport": true,
-        "detail": "reportlab.lib.pagesizes",
-        "documentation": {}
-    },
-    {
-        "label": "PdfReader",
-        "importPath": "pdfrw",
-        "description": "pdfrw",
-        "isExtraImport": true,
-        "detail": "pdfrw",
-        "documentation": {}
-    },
-    {
-        "label": "PdfWriter",
-        "importPath": "pdfrw",
-        "description": "pdfrw",
-        "isExtraImport": true,
-        "detail": "pdfrw",
-        "documentation": {}
-    },
-    {
-        "label": "PageMerge",
-        "importPath": "pdfrw",
-        "description": "pdfrw",
-        "isExtraImport": true,
-        "detail": "pdfrw",
-        "documentation": {}
-    },
-    {
-        "label": "url_for",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
         "label": "Flask",
         "importPath": "flask",
         "description": "flask",
@@ -120,20 +64,11 @@
         "documentation": {}
     },
     {
-        "label": "io",
-        "kind": 6,
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
         "isExtraImport": true,
-        "importPath": "io",
-        "description": "io",
-        "detail": "io",
-        "documentation": {}
-    },
-    {
-        "label": "datetime",
-        "importPath": "datetime",
-        "description": "datetime",
-        "isExtraImport": true,
-        "detail": "datetime",
+        "detail": "flask",
         "documentation": {}
     },
     {
@@ -143,6 +78,15 @@
         "importPath": "os",
         "description": "os",
         "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "io",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "io",
+        "description": "io",
+        "detail": "io",
         "documentation": {}
     },
     {
@@ -198,138 +142,194 @@
         "documentation": {}
     },
     {
-        "label": "fill_konami_decklist",
-        "kind": 2,
-        "importPath": "src.api.WriteANewPdf",
-        "description": "src.api.WriteANewPdf",
-        "peekOfCode": "def fill_konami_decklist(data, deck_data):\n    input_pdf_file = \"src/static/pdfs/decklist.pdf\"  # PDF em branco\n    output_pdf_file = \"src/static/pdfs/decklist_test_filled.pdf\"\n    temp_pdf_path = \"src/static/pdfs/temp_filled_data.pdf\"\n    c = canvas.Canvas(temp_pdf_path, pagesize=letter)\n    c.setFont(\"Helvetica\", 12)\n    # -----------------------------\n    # Informações Pessoais\n    # -----------------------------\n    c.drawString(102, 720, data.get(\"first_middle_names\", \"\"))  # First & Middle Name",
-        "detail": "src.api.WriteANewPdf",
+        "label": "canvas",
+        "importPath": "reportlab.pdfgen",
+        "description": "reportlab.pdfgen",
+        "isExtraImport": true,
+        "detail": "reportlab.pdfgen",
         "documentation": {}
     },
     {
-        "label": "draw_fitted_text",
-        "kind": 2,
-        "importPath": "src.api.WriteANewPdf",
-        "description": "src.api.WriteANewPdf",
-        "peekOfCode": "def draw_fitted_text(c, x, y, text, max_width, initial_font_size=10, font_name=\"Helvetica\"):\n    \"\"\"\n    Diminui a fonte até o texto caber dentro do max_width.\n    \"\"\"\n    font_size = initial_font_size\n    c.setFont(font_name, font_size)\n    # Calcula a largura do texto\n    text_width = c.stringWidth(text, font_name, font_size)\n    # Diminui a fonte até caber\n    while text_width > max_width and font_size > 4:  # evita fonte minúscula demais",
-        "detail": "src.api.WriteANewPdf",
+        "label": "letter",
+        "importPath": "reportlab.lib.pagesizes",
+        "description": "reportlab.lib.pagesizes",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.pagesizes",
+        "documentation": {}
+    },
+    {
+        "label": "A4",
+        "importPath": "reportlab.lib.pagesizes",
+        "description": "reportlab.lib.pagesizes",
+        "isExtraImport": true,
+        "detail": "reportlab.lib.pagesizes",
+        "documentation": {}
+    },
+    {
+        "label": "PdfReader",
+        "importPath": "pdfrw",
+        "description": "pdfrw",
+        "isExtraImport": true,
+        "detail": "pdfrw",
+        "documentation": {}
+    },
+    {
+        "label": "PdfWriter",
+        "importPath": "pdfrw",
+        "description": "pdfrw",
+        "isExtraImport": true,
+        "detail": "pdfrw",
+        "documentation": {}
+    },
+    {
+        "label": "PageMerge",
+        "importPath": "pdfrw",
+        "description": "pdfrw",
+        "isExtraImport": true,
+        "detail": "pdfrw",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
         "documentation": {}
     },
     {
         "label": "allowed_file",
         "kind": 2,
-        "importPath": "src.app",
-        "description": "src.app",
+        "importPath": "api.app",
+        "description": "api.app",
         "peekOfCode": "def allowed_file(filename):\n    return \".\" in filename and filename.rsplit(\".\", 1)[1].lower() in ALLOWED_EXTENSIONS\n# Função para ler YDK\ndef parse_ydk(file_path):\n    with open(file_path, \"r\", encoding=\"utf-8\") as f:\n        lines = f.readlines()\n    sections = {\"main\": [], \"extra\": [], \"side\": []}\n    current_section = \"main\"\n    for line in lines:\n        line = line.strip()",
-        "detail": "src.app",
+        "detail": "api.app",
         "documentation": {}
     },
     {
         "label": "parse_ydk",
         "kind": 2,
-        "importPath": "src.app",
-        "description": "src.app",
+        "importPath": "api.app",
+        "description": "api.app",
         "peekOfCode": "def parse_ydk(file_path):\n    with open(file_path, \"r\", encoding=\"utf-8\") as f:\n        lines = f.readlines()\n    sections = {\"main\": [], \"extra\": [], \"side\": []}\n    current_section = \"main\"\n    for line in lines:\n        line = line.strip()\n        if line == \"#main\":\n            current_section = \"main\"\n        elif line == \"#extra\":",
-        "detail": "src.app",
+        "detail": "api.app",
         "documentation": {}
     },
     {
         "label": "get_card_info",
         "kind": 2,
-        "importPath": "src.app",
-        "description": "src.app",
+        "importPath": "api.app",
+        "description": "api.app",
         "peekOfCode": "def get_card_info(card_id):\n    url = \"https://db.ygoprodeck.com/api/v7/cardinfo.php\"\n    params = {\n        \"id\": card_id,\n        \"misc\": \"yes\",\n        \"format\" : \"genesys\"\n    }\n    response = requests.get(url, params=params)\n    if response.status_code == 200:\n        data = response.json().get(\"data\", [])",
-        "detail": "src.app",
+        "detail": "api.app",
         "documentation": {}
     },
     {
         "label": "index",
         "kind": 2,
-        "importPath": "src.app",
-        "description": "src.app",
+        "importPath": "api.app",
+        "description": "api.app",
         "peekOfCode": "def index():\n    deck_data = {}\n    loading = False\n    submit_done = True\n    decklistPath = \"\"\n    decklist_ready = False\n    if request.method == \"POST\":\n        if \"deckFile\" not in request.files:\n            flash(\"No file part\")\n            return redirect(request.url)",
-        "detail": "src.app",
+        "detail": "api.app",
         "documentation": {}
     },
     {
         "label": "decklist",
         "kind": 2,
-        "importPath": "src.app",
-        "description": "src.app",
+        "importPath": "api.app",
+        "description": "api.app",
         "peekOfCode": "def decklist():\n    dataUser = session.get(\"deck_data_user\")\n    decklist = session.get(\"decklist\")\n    if not dataUser:\n        return \"Nenhum PDF gerado ainda\", 404\n    # WriteANewPdf.fill_konami_decklist deve retornar bytes (como vc já tem)\n    pdf_bytes = WriteANewPdf.fill_konami_decklist(dataUser, decklist)\n    return send_file(io.BytesIO(pdf_bytes),\n                     mimetype=\"application/pdf\",\n                     as_attachment=False,",
-        "detail": "src.app",
+        "detail": "api.app",
         "documentation": {}
     },
     {
         "label": "BASE_DIR",
         "kind": 5,
-        "importPath": "src.app",
-        "description": "src.app",
+        "importPath": "api.app",
+        "description": "api.app",
         "peekOfCode": "BASE_DIR = os.path.dirname(os.path.abspath(__file__))\n# Configurações\nUPLOAD_FOLDER = os.path.join(BASE_DIR, \"../src/uploads\")  # pasta para salvar arquivos YDK\nALLOWED_EXTENSIONS = {\"ydk\"}\n# Cria pasta se não existir\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\napp = Flask(\n    __name__,\n    template_folder=os.path.join(BASE_DIR, \"../src/templates\"),\n    static_folder=os.path.join(BASE_DIR, \"../src/static\")",
-        "detail": "src.app",
+        "detail": "api.app",
         "documentation": {}
     },
     {
         "label": "UPLOAD_FOLDER",
         "kind": 5,
-        "importPath": "src.app",
-        "description": "src.app",
+        "importPath": "api.app",
+        "description": "api.app",
         "peekOfCode": "UPLOAD_FOLDER = os.path.join(BASE_DIR, \"../src/uploads\")  # pasta para salvar arquivos YDK\nALLOWED_EXTENSIONS = {\"ydk\"}\n# Cria pasta se não existir\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\napp = Flask(\n    __name__,\n    template_folder=os.path.join(BASE_DIR, \"../src/templates\"),\n    static_folder=os.path.join(BASE_DIR, \"../src/static\")\n    )\nalphabet = string.ascii_letters + string.digits + \"!@#$%^&*()-_=+\"",
-        "detail": "src.app",
+        "detail": "api.app",
         "documentation": {}
     },
     {
         "label": "ALLOWED_EXTENSIONS",
         "kind": 5,
-        "importPath": "src.app",
-        "description": "src.app",
+        "importPath": "api.app",
+        "description": "api.app",
         "peekOfCode": "ALLOWED_EXTENSIONS = {\"ydk\"}\n# Cria pasta se não existir\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\napp = Flask(\n    __name__,\n    template_folder=os.path.join(BASE_DIR, \"../src/templates\"),\n    static_folder=os.path.join(BASE_DIR, \"../src/static\")\n    )\nalphabet = string.ascii_letters + string.digits + \"!@#$%^&*()-_=+\"\napp.secret_key = ''.join(secrets.choice(alphabet) for _ in range(50))",
-        "detail": "src.app",
+        "detail": "api.app",
         "documentation": {}
     },
     {
         "label": "app",
         "kind": 5,
-        "importPath": "src.app",
-        "description": "src.app",
+        "importPath": "api.app",
+        "description": "api.app",
         "peekOfCode": "app = Flask(\n    __name__,\n    template_folder=os.path.join(BASE_DIR, \"../src/templates\"),\n    static_folder=os.path.join(BASE_DIR, \"../src/static\")\n    )\nalphabet = string.ascii_letters + string.digits + \"!@#$%^&*()-_=+\"\napp.secret_key = ''.join(secrets.choice(alphabet) for _ in range(50))\napp.config[\"UPLOAD_FOLDER\"] = UPLOAD_FOLDER\n# Função para validar extensão\ndef allowed_file(filename):",
-        "detail": "src.app",
+        "detail": "api.app",
         "documentation": {}
     },
     {
         "label": "alphabet",
         "kind": 5,
-        "importPath": "src.app",
-        "description": "src.app",
+        "importPath": "api.app",
+        "description": "api.app",
         "peekOfCode": "alphabet = string.ascii_letters + string.digits + \"!@#$%^&*()-_=+\"\napp.secret_key = ''.join(secrets.choice(alphabet) for _ in range(50))\napp.config[\"UPLOAD_FOLDER\"] = UPLOAD_FOLDER\n# Função para validar extensão\ndef allowed_file(filename):\n    return \".\" in filename and filename.rsplit(\".\", 1)[1].lower() in ALLOWED_EXTENSIONS\n# Função para ler YDK\ndef parse_ydk(file_path):\n    with open(file_path, \"r\", encoding=\"utf-8\") as f:\n        lines = f.readlines()",
-        "detail": "src.app",
+        "detail": "api.app",
         "documentation": {}
     },
     {
         "label": "app.secret_key",
         "kind": 5,
-        "importPath": "src.app",
-        "description": "src.app",
+        "importPath": "api.app",
+        "description": "api.app",
         "peekOfCode": "app.secret_key = ''.join(secrets.choice(alphabet) for _ in range(50))\napp.config[\"UPLOAD_FOLDER\"] = UPLOAD_FOLDER\n# Função para validar extensão\ndef allowed_file(filename):\n    return \".\" in filename and filename.rsplit(\".\", 1)[1].lower() in ALLOWED_EXTENSIONS\n# Função para ler YDK\ndef parse_ydk(file_path):\n    with open(file_path, \"r\", encoding=\"utf-8\") as f:\n        lines = f.readlines()\n    sections = {\"main\": [], \"extra\": [], \"side\": []}",
-        "detail": "src.app",
+        "detail": "api.app",
         "documentation": {}
     },
     {
         "label": "app.config[\"UPLOAD_FOLDER\"]",
         "kind": 5,
-        "importPath": "src.app",
-        "description": "src.app",
+        "importPath": "api.app",
+        "description": "api.app",
         "peekOfCode": "app.config[\"UPLOAD_FOLDER\"] = UPLOAD_FOLDER\n# Função para validar extensão\ndef allowed_file(filename):\n    return \".\" in filename and filename.rsplit(\".\", 1)[1].lower() in ALLOWED_EXTENSIONS\n# Função para ler YDK\ndef parse_ydk(file_path):\n    with open(file_path, \"r\", encoding=\"utf-8\") as f:\n        lines = f.readlines()\n    sections = {\"main\": [], \"extra\": [], \"side\": []}\n    current_section = \"main\"",
-        "detail": "src.app",
+        "detail": "api.app",
         "documentation": {}
     },
     {
         "label": "app",
         "kind": 5,
-        "importPath": "src.app",
-        "description": "src.app",
+        "importPath": "api.app",
+        "description": "api.app",
         "peekOfCode": "app = app",
-        "detail": "src.app",
+        "detail": "api.app",
+        "documentation": {}
+    },
+    {
+        "label": "fill_konami_decklist",
+        "kind": 2,
+        "importPath": "api.WriteANewPdf",
+        "description": "api.WriteANewPdf",
+        "peekOfCode": "def fill_konami_decklist(data, deck_data):\n    input_pdf_file = \"src/static/pdfs/decklist.pdf\"  # PDF em branco\n    output_pdf_file = \"src/static/pdfs/decklist_test_filled.pdf\"\n    temp_pdf_path = \"src/static/pdfs/temp_filled_data.pdf\"\n    c = canvas.Canvas(temp_pdf_path, pagesize=letter)\n    c.setFont(\"Helvetica\", 12)\n    # -----------------------------\n    # Informações Pessoais\n    # -----------------------------\n    c.drawString(102, 720, data.get(\"first_middle_names\", \"\"))  # First & Middle Name",
+        "detail": "api.WriteANewPdf",
+        "documentation": {}
+    },
+    {
+        "label": "draw_fitted_text",
+        "kind": 2,
+        "importPath": "api.WriteANewPdf",
+        "description": "api.WriteANewPdf",
+        "peekOfCode": "def draw_fitted_text(c, x, y, text, max_width, initial_font_size=10, font_name=\"Helvetica\"):\n    \"\"\"\n    Diminui a fonte até o texto caber dentro do max_width.\n    \"\"\"\n    font_size = initial_font_size\n    c.setFont(font_name, font_size)\n    # Calcula a largura do texto\n    text_width = c.stringWidth(text, font_name, font_size)\n    # Diminui a fonte até caber\n    while text_width > max_width and font_size > 4:  # evita fonte minúscula demais",
+        "detail": "api.WriteANewPdf",
         "documentation": {}
     }
 ]
