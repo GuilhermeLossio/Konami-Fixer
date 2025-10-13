@@ -1,3 +1,5 @@
+import api.WriteANewPdf as WriteANewPdf
+
 from flask import Flask, render_template, request, redirect, url_for, flash, session, send_file
 import os
 import io
@@ -6,7 +8,6 @@ import time
 import secrets, string
 from collections import Counter
 
-import api.WriteANewPdf as WriteANewPdf
 
 # Configurações
 UPLOAD_FOLDER = "../src/uploads"  # pasta para salvar arquivos YDK
