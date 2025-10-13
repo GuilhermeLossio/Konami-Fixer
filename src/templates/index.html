@@ -97,17 +97,17 @@
                                                 <label for="first_middle_names" class="form-label">First & Middle
                                                     Name(s):</label>
                                                 <input type="text" class="form-control" id="first_middle_names"
-                                                    name="first_middle_names" placeholder="Your first and middle names">
+                                                    name="first_middle_names" placeholder="Your first and middle names" required>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="last_names" class="form-label">Last Name(s):</label>
                                                 <input type="text" class="form-control" id="last_names"
-                                                    name="last_names" placeholder="Your last names">
+                                                    name="last_names" placeholder="Your last names" required>
                                             </div>
                                             <div class="col-12">
                                                 <label for="card_game_id" class="form-label">CARD GAME ID:</label>
                                                 <input type="text" class="form-control" id="card_game_id"
-                                                    name="card_game_id" placeholder="Your game ID">
+                                                    name="card_game_id" placeholder="Your game ID" required>
                                             </div>
                                         </div>
                                     </div>
@@ -119,20 +119,21 @@
                                         </h3>
                                         <div class="row g-3">
                                             <div class="col-md-6">
-                                                <label for="event_date" class="form-label">Event Date:</label>
-                                                <input type="date" class="form-control" id="event_date"
-                                                    name="event_date">
+                                                <label for="event_date" class="form-label">Event Date(MM/DD/YYYY):</label>
+                                                <input type="date" class="form-control" id="event_date" name="event_date"
+                                                    value="{{ dataUser.event_date if dataUser else '' }}" required>
                                             </div>
+
                                             <div class="col-md-6">
                                                 <label for="country_residency" class="form-label">Country of
                                                     Residency:</label>
                                                 <input type="text" class="form-control" id="country_residency"
-                                                    name="country_residency" placeholder="Your country">
+                                                    name="country_residency" placeholder="Your country" required>
                                             </div>
                                             <div class="col-12">
                                                 <label for="event_name" class="form-label">Event Name:</label>
                                                 <input type="text" class="form-control" id="event_name"
-                                                    name="event_name" placeholder="Tournament name">
+                                                    name="event_name" placeholder="Tournament name" required> 
                                             </div>
                                         </div>
                                     </div>
@@ -190,9 +191,11 @@
                                         </span>
 
                                         <!-- Span direita: genesys_points -->
+                                        {% if card.genesys_points != 0 %}
                                         <span class="badge bg-danger position-absolute top-0 end-0 m-1">
-                                            {{ card.genesys_points or 0 }}
+                                            {{ card.genesys_points}}
                                         </span>
+                                        {%endif%}
 
                                         <small class="d-block text-center mt-1 text-truncate" style="max-width: 100px;">
                                             {{ card.name }}
@@ -218,9 +221,21 @@
                         </h2>
                     </div>
                     <div class="card-body p-0">
-                        <iframe id="pdfViewer" src="{{ url_for('static', filename=decklistPath) if decklistPath else url_for('static', filename='pdfs/decklist.pdf') }}">
+                        {% if pdf_base64 %}
+                        <iframe id="pdfViewer"
+                                src="data:application/pdf;base64,{{ pdf_base64 }}"
+                                width="100%"
+                                height="700px"
+                                style="border:none;">
                             Your browser does not support PDF viewing.
                         </iframe>
+                        {% else %}
+                        <iframe id="pdfViewer"
+                                src="{% if decklist_ready %}{{ url_for('decklist') }}{% else %}{{ url_for('static', filename='pdfs/decklist.pdf') }}{% endif %}"
+                                width="100%" height="700px" style="border:none;">
+                            Your browser does not support PDF viewing.
+                        </iframe>
+                        {% endif %}
                     </div>
                 </div>
             </div>
