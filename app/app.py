@@ -10,7 +10,7 @@ from collections import Counter
 import sys
 sys.path.append("..")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-from . import write_a_new_pdf
+import write_a_new_pdf
 # Configurações
 UPLOAD_FOLDER = os.path.join(BASE_DIR, "../uploads")  # pasta para salvar arquivos YDK
 ALLOWED_EXTENSIONS = {"ydk"}
