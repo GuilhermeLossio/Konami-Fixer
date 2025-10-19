@@ -8,7 +8,7 @@ import secrets, string
 from collections import Counter
 import sys
 sys.path.append("..")
-import WriteANewPdf
+import app.write_a_new_pdf as write_a_new_pdf
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 # Configurações
 UPLOAD_FOLDER = os.path.join(BASE_DIR, "../uploads")  # pasta para salvar arquivos YDK
@@ -125,7 +125,7 @@ def index():
             session["deck_data_user"] = dataUser
             session["decklist"] = deck_data
             
-            decklistPath = WriteANewPdf.fill_konami_decklist(dataUser, deck_data)
+            decklistPath = write_a_new_pdf.fill_konami_decklist(dataUser, deck_data)
             
         else:
             flash("Invalid file type. Only .ydk allowed.")
@@ -141,7 +141,7 @@ def decklist():
         return "Nenhum PDF gerado ainda", 404
 
     # WriteANewPdf.fill_konami_decklist deve retornar bytes (como vc já tem)
-    pdf_bytes = WriteANewPdf.fill_konami_decklist(dataUser, decklist)
+    pdf_bytes = write_a_new_pdf.fill_konami_decklist(dataUser, decklist)
     return send_file(io.BytesIO(pdf_bytes),
                      mimetype="application/pdf",
                      as_attachment=False,

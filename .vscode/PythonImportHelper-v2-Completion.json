@@ -134,12 +134,12 @@
         "documentation": {}
     },
     {
-        "label": "WriteANewPdf",
+        "label": "app.write_a_new_pdf",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "WriteANewPdf",
-        "description": "WriteANewPdf",
-        "detail": "WriteANewPdf",
+        "importPath": "app.write_a_new_pdf",
+        "description": "app.write_a_new_pdf",
+        "detail": "app.write_a_new_pdf",
         "documentation": {}
     },
     {
@@ -247,7 +247,7 @@
         "kind": 2,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "def decklist():\n    dataUser = session.get(\"deck_data_user\")\n    decklist = session.get(\"decklist\")\n    if not dataUser:\n        return \"Nenhum PDF gerado ainda\", 404\n    # WriteANewPdf.fill_konami_decklist deve retornar bytes (como vc já tem)\n    pdf_bytes = WriteANewPdf.fill_konami_decklist(dataUser, decklist)\n    return send_file(io.BytesIO(pdf_bytes),\n                     mimetype=\"application/pdf\",\n                     as_attachment=False,",
+        "peekOfCode": "def decklist():\n    dataUser = session.get(\"deck_data_user\")\n    decklist = session.get(\"decklist\")\n    if not dataUser:\n        return \"Nenhum PDF gerado ainda\", 404\n    # WriteANewPdf.fill_konami_decklist deve retornar bytes (como vc já tem)\n    pdf_bytes = write_a_new_pdf.fill_konami_decklist(dataUser, decklist)\n    return send_file(io.BytesIO(pdf_bytes),\n                     mimetype=\"application/pdf\",\n                     as_attachment=False,",
         "detail": "app.app",
         "documentation": {}
     },
@@ -326,19 +326,19 @@
     {
         "label": "fill_konami_decklist",
         "kind": 2,
-        "importPath": "app.WriteANewPdf",
-        "description": "app.WriteANewPdf",
+        "importPath": "app.write_a_new_pdf",
+        "description": "app.write_a_new_pdf",
         "peekOfCode": "def fill_konami_decklist(data, deck_data):\n    input_pdf_file = os.path.join(BASE_DIR, \"static/pdfs/decklist.pdf\")  # PDF em branco\n    output_pdf_file = os.path.join(BASE_DIR, \"static/pdfs/decklist_test_filled.pdf\")\n    temp_pdf_path = os.path.join(BASE_DIR, \"static/pdfs/temp_filled_data.pdf\")\n    c = canvas.Canvas(temp_pdf_path, pagesize=letter)\n    c.setFont(\"Helvetica\", 12)\n    # -----------------------------\n    # Informações Pessoais\n    # -----------------------------\n    c.drawString(102, 720, data.get(\"first_middle_names\", \"\"))  # First & Middle Name",
-        "detail": "app.WriteANewPdf",
+        "detail": "app.write_a_new_pdf",
         "documentation": {}
     },
     {
         "label": "draw_fitted_text",
         "kind": 2,
-        "importPath": "app.WriteANewPdf",
-        "description": "app.WriteANewPdf",
+        "importPath": "app.write_a_new_pdf",
+        "description": "app.write_a_new_pdf",
         "peekOfCode": "def draw_fitted_text(c, x, y, text, max_width, initial_font_size=10, font_name=\"Helvetica\"):\n    \"\"\"\n    Diminui a fonte até o texto caber dentro do max_width.\n    \"\"\"\n    font_size = initial_font_size\n    c.setFont(font_name, font_size)\n    # Calcula a largura do texto\n    text_width = c.stringWidth(text, font_name, font_size)\n    # Diminui a fonte até caber\n    while text_width > max_width and font_size > 4:  # evita fonte minúscula demais",
-        "detail": "app.WriteANewPdf",
+        "detail": "app.write_a_new_pdf",
         "documentation": {}
     }
 ]
