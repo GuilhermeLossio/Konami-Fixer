@@ -8,6 +8,8 @@ import time
 import secrets, string
 from collections import Counter
 import sys
+import platform
+from waitress import serve
 sys.path.append("..")
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 import write_a_new_pdf
@@ -149,7 +151,12 @@ def decklist():
                      download_name="decklist.pdf")
 
 if __name__ == "__main__":
-    app.run(debug=True)
-
-
+    if platform.system() == "Windows":
+        # On Windows, use the Flask development server
+        app.run(debug=True, host="0.0.0.0", port=8080)
+    else:
+        # On Linux/macOS (ex: Railway)
+        from waitress import serve
+        serve(app, host="0.0.0.0", port=8080)
+    
 app = app
