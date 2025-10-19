@@ -1,26 +1,30 @@
-# <div align="center" style="margin-bottom: 20px;">
+# 
+<div align="center">
   <a href="https://github.com/GuilhermeLossio/Konami-Fixer/blob/main/app/static/BabyNoodle.png" target="_blank" rel="noopener">
-    <img src="./app/static/BabyNoodle.png" alt="BabyNoodle logo" width="90">
+    <img src="./app/static/BabyNoodle.png" alt="BabyNoodle logo" width="200" />
   </a>
-
-  <h1>Konami-Fixer / DiNoodle</h1>
-
-  <p>
-    <strong>by <a href="https://github.com/GuilhermeLossio">@GuilhermeLossio</a></strong><br>
-    A small tool to validate, fix and generate tournament-style decklists for Konami's official format (.ydk).
-  </p>
-
-  <p>
-    <a href="https://dinoodle.up.railway.app/">🚀 Live Demo</a>
-  </p>
-
-  <p>
-    <img src="https://img.shields.io/badge/Python-3.8%2B-blue" alt="Python">
-    <img src="https://img.shields.io/badge/Flask-2.x-green" alt="Flask">
-    <img src="https://img.shields.io/badge/License-MIT-blue" alt="License">
-    <img src="https://img.shields.io/badge/Status-Active-success" alt="Status">
-  </p>
 </div>
+
+<h1 align="center">DiNoodle</h1>
+
+<p align="center">
+  <strong>by <a href="https://github.com/GuilhermeLossio">@GuilhermeLossio</a></strong><br>
+  A small tool to validate, fix, and generate tournament-style decklists for Konami's official format (<code>.ydk</code>).
+</p>
+
+<p align="center">
+  <a href="https://dinoodle.up.railway.app/">🚀 Live Demo</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.8%2B-blue" alt="Python" />
+  <img src="https://img.shields.io/badge/Flask-2.x-green" alt="Flask" />
+  <img src="https://img.shields.io/badge/License-MIT-blue" alt="License" />
+  <img src="https://img.shields.io/badge/Status-Active-success" alt="Status" />
+</p>
+
+---
+
 
 ---
 
