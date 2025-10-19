@@ -1,5 +1,22 @@
 [
     {
+        "label": "app",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "app",
+        "description": "app",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "BASE_DIR",
+        "importPath": "app",
+        "description": "app",
+        "isExtraImport": true,
+        "detail": "app",
+        "documentation": {}
+    },
+    {
         "label": "Flask",
         "importPath": "flask",
         "description": "flask",
@@ -134,12 +151,12 @@
         "documentation": {}
     },
     {
-        "label": "app.write_a_new_pdf",
+        "label": "write_a_new_pdf",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "app.write_a_new_pdf",
-        "description": "app.write_a_new_pdf",
-        "detail": "app.write_a_new_pdf",
+        "importPath": "write_a_new_pdf",
+        "description": "write_a_new_pdf",
+        "detail": "write_a_new_pdf",
         "documentation": {}
     },
     {
@@ -199,14 +216,6 @@
         "documentation": {}
     },
     {
-        "label": "BASE_DIR",
-        "importPath": "app",
-        "description": "app",
-        "isExtraImport": true,
-        "detail": "app",
-        "documentation": {}
-    },
-    {
         "label": "allowed_file",
         "kind": 2,
         "importPath": "app.app",
@@ -256,7 +265,7 @@
         "kind": 5,
         "importPath": "app.app",
         "description": "app.app",
-        "peekOfCode": "BASE_DIR = os.path.dirname(os.path.abspath(__file__))\n# Configurações\nUPLOAD_FOLDER = os.path.join(BASE_DIR, \"../uploads\")  # pasta para salvar arquivos YDK\nALLOWED_EXTENSIONS = {\"ydk\"}\n# Cria pasta se não existir\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\nprint(BASE_DIR)\napp = Flask(\n    __name__,\n    template_folder=os.path.join(BASE_DIR, \"templates\"),",
+        "peekOfCode": "BASE_DIR = os.path.dirname(os.path.abspath(__file__))\nimport write_a_new_pdf as write_a_new_pdf\n# Configurações\nUPLOAD_FOLDER = os.path.join(BASE_DIR, \"../uploads\")  # pasta para salvar arquivos YDK\nALLOWED_EXTENSIONS = {\"ydk\"}\n# Cria pasta se não existir\nos.makedirs(UPLOAD_FOLDER, exist_ok=True)\nprint(BASE_DIR)\napp = Flask(\n    __name__,",
         "detail": "app.app",
         "documentation": {}
     },

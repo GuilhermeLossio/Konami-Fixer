@@ -1,4 +1,5 @@
 
+import app
 from flask import Flask, render_template, request, redirect, url_for, flash, session, send_file
 import os
 import io
@@ -8,8 +9,8 @@ import secrets, string
 from collections import Counter
 import sys
 sys.path.append("..")
-import app.write_a_new_pdf as write_a_new_pdf
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+import write_a_new_pdf as write_a_new_pdf
 # Configurações
 UPLOAD_FOLDER = os.path.join(BASE_DIR, "../uploads")  # pasta para salvar arquivos YDK
 ALLOWED_EXTENSIONS = {"ydk"}
