@@ -9,8 +9,7 @@ def create_app():
         static_folder=os.path.join(BASE_DIR, "static")
     )
 
-    # Importa rotas
-    from . import routes
-    app.register_blueprint(routes.bp)
+    # Importa o app.py como módulo do pacote
+    from . import app as app_module
 
     return app
